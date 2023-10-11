@@ -1,0 +1,352 @@
+Class and Object Basics:
+a.	Define what a class is in Python and how it is used.
+=>  In python,  a class is a blueprint or a template that defines the structure and behaviour of objects. It is a way to encapsulate data(attributes) and functions(methods) that operate on that data within a single logical unit. Classes enable the creation of custom data types with their own attributes and behaviours, promoting code reusability, modularity, and ease of maintenance.
+The key components and their usage with a class:
+1)	 class declaration:
+To define a class, you use the ‘class’ keyword, followed by the class name and a colon, like this: ‘class ClassName:’.
+
+2)	 attributes:
+a)	Attributes are variables that hold data specific to each instance of the class. They define the characteristics or properties of the objects created from the class.
+b)	Attributes are defined within the class and accessed using the dot(.) notion, e.g.,
+Self.attribute_name.
+
+3)	Methods:
+a)	Methods are functions defined within a class that perform operations or actions related to the class’s purpose.
+b)	Methods can access and modify the class’s attributes and perform various actions on them.
+c)	The first parameter of a method is typically ‘self’, which refers to the instance of the class( similar to ‘this’ in other programming languages).
+
+4)	Constructor(‘__init__’ method):
+a)	The __init__ ‘method’ is a special method used to initialize the attributes of a class when an object is created.
+b)	It’s the class constructor and gets automatically called when a new instance of the class is created.
+
+b. Explain the purpose of the __init__() method in a class.
+=> The ‘__init__()’ method in class is a special method in python that serves the constructor or initializer for instances(objects) of that class. It gets automatically called when a new object is created from the class. The primary purpose of the ‘__init__()’ method is to initialize the attributes of the object to specific values.
+Key points about the ‘__init__()’ method:
+1)	Initialization of attributes:
+	The ‘__init__()’ method allows you to initialize the attributes of the object to specific values when the object is created.
+	Within this method, you typically set initial values for the attributes based on the arguments passed during object creation.
+2)	Automatic invocation:
+	When you create a new instance of the class, the __init__() method is called automatically, and it initializes the object's attributes.
+3)	Self parameter:
+	The ‘__init__()’  method takes the ‘self’ parameter as the first arguments, which represents the instance being created.
+	‘self’ allows you to access and modify attributes of the instances within the ‘__init__()’ method.
+4)	Customization:
+	One can customize the ‘__init__()’ method to accept additional parameters beyond ‘self’ to initialize attributes based on provide values.
+ 
+  
+
+b.	Create a class named Car with attributes make and model, and a method display_info() to print the car's information.
+	class Car:
+def __init__(self, make, model):
+	self.make= make
+	self.model= model
+def display_info(self):
+	print (f”make”:{self.make},model:{self}”);
+car1= Car(“1996”,“mercedez”)
+car2= Car(“2009”,”porse”)
+
+car1.display_info()
+car2.display_info()
+
+Attributes and Methods:
+a.	Describe the difference between instance variables and class variables.
+=>
+|                     | Instance Variable                  | Class Variable                     |
+|---------------------|-----------------------------------|-----------------------------------|
+| **Scope**           | Per instance/object                | Shared across all instances        |
+| **Location**        | Inside methods or constructors    | Outside methods, within the class  |
+| **Declaration**     | Declared within methods or        | Declared directly within the class |
+|                     | constructors using 'self'          | using the class name               |
+| **Access**          | Accessed using 'self.variable'     | Accessed using 'Class.variable'     |
+| **Modification**    | Modified independently for each    | Modified for all instances, and    |
+|                     | instance                          | changes are reflected in all       |
+| **Use Cases**       | Represents object-specific data   | Represents data shared among       |
+|                     | or properties                     | all instances                      |
+
+
+Class Person:
+	def __init__(self, name, age):
+		self.name = name #instance variable
+		self.age = age #instance variable 
+class Circle:
+    pi = 3.14  # Class variable
+
+    def __init__(self, radius):
+        self.radius = radius  # Instance variable
+
+# Instance variable usage
+person1 = Person("Alice", 30)
+print(person1.name)  # Output: Alice
+# Class variable usage
+print(Circle.pi)  # Output: 3.14
+
+
+b.	Define a method calculate_area() in a class Rectangle that calculates and returns the area of a rectangle using its length and width attributes.
+	class Rectangle():
+def __init__(self, length, breadth):
+	self.length= length
+	self.width = width
+def calculate_area(self):
+	return self.length * self.width
+	# creating instance of the rectangle class
+rectangle=Rectangle(5,10)
+
+#calculate the area using the calculate_area() method
+area = rectangle.calculate_area()
+print(area)  
+
+
+Inheritance:
+a.	Explain the concept of inheritance in object-oriented programming.
+=> Inheritance is a fundamental concept in object-oriented programming (OOP) that allows a class (called a subclass or derived class) to inherit properties and behaviors (attributes and methods) from another class (called a superclass or base class). It is a mechanism that promotes code reusability, extensibility, and organization in software development.
+
+b. Create a class Animal and a subclass Dog that inherits from Animal. Add a method bark() to the Dog class.
+=> Here are key points explaining the concept of inheritance:
+1.	Base Class (Superclass):
+•	The class whose attributes and methods are inherited is called the base class, superclass, or parent class.
+•	This class contains the common properties and behaviors that can be shared by multiple subclasses.
+2.	Derived Class (Subclass):
+•	The class that inherits attributes and methods from the base class is called the derived class, subclass, or child class.
+•	The subclass can extend or modify the functionality inherited from the base class and add its own attributes and methods.
+3.	Syntax:
+•	In Python, inheritance is implemented by specifying the name of the base class in the declaration of the subclass.
+•	Syntax: class SubclassName(BaseClassName):.
+4.	Types of Inheritance:
+•	Single Inheritance: A subclass inherits from a single base class.
+•	Multiple Inheritance: A subclass inherits from multiple base classes.
+•	Multilevel Inheritance: A subclass inherits from another subclass, forming a chain of inheritance.
+•	Hierarchical Inheritance: Multiple subclasses inherit from a single base class.
+•	Hybrid (or Mixture) Inheritance: A combination of multiple inheritance types.
+5.	Inheriting Attributes and Methods:
+•	The subclass inherits all the attributes and methods (including public and protected ones) from the base class.
+•	The subclass can access and use inherited attributes and methods as if they were defined within the subclass.
+6.	Overriding:
+•	The subclass can override (redefine) methods from the base class to provide its own implementation.
+•	Method overriding allows customization of behavior specific to the subclass.
+7.	Super Function:
+•	The super() function is used to call a method from the base class within the subclass, allowing access to the base class's implementation.
+
+
+c)	Are there both method overriding and overloading in python
+Yes, both method overriding and overloading are possible in Python, although method overloading is achieved in a different way compared to languages like Java or C++.
+
+Method Overriding:
+Method overriding in Python occurs when a subclass defines a method with the same name as a method in its superclass. The method in the subclass overrides the behavior of the method in the superclass. This allows the subclass to provide its own implementation for the method.
+
+Example of method overriding:
+class Parent:
+    def greet(self):
+        print("Hello from Parent")
+
+class Child(Parent):
+    def greet(self):
+        print("Hello from Child")
+
+
+child = Child()
+child.greet()  # Output: Hello from Child
+Method overloading:
+Method overloading traditionally involves defining multiple methods in the same class with different signatures (number or type of parameters). In languages like Java, you can have multiple methods with the same name but different parameter types.
+
+However, Python does not support traditional method overloading based on method signatures. Instead, you can achieve a similar effect by using default arguments or variable-length argument lists.
+
+Example of achieving method overloading using default arguments:
+class Calculator:
+    def add(self, a, b=0):
+        return a + b
+
+calc = Calculator()
+print(calc.add(5))      # Output: 5 (using default argument for b)
+print(calc.add(2, 3))   # Output: 5 (using both arguments)
+Example of achieving method overloading using variable-length argument lists:
+
+class Calculator:
+    def add(self, *args):
+        return sum(args)
+
+calc = Calculator()
+print(calc.add(2, 3))           # Output: 5
+print(calc.add(1, 4, 7, 2, 8))   # Output: 22
+
+
+
+
+
+
+Polymorphism:
+a)	Define polymorphism and provide an example using classes and method overriding in Python.
+	Polymorphism in the context of oops is the ability of different objects or classes to provide a common interface(methods) while allowing each class to implements it’s own unique behavior. It allows objects to different classes to be treated as objects of a common superclass, enabling code to be written that operas on a general type without being aware of the specific subtype.
+Key points about polymorphism:
+1.	Common Interface:
+•	Polymorphism enables objects to be treated through a common interface, meaning they can respond to the same set of method calls.
+2.	Method Signature:
+•	The methods in different classes have the same method signature but can have different implementations based on the class they belong to.
+3.	Dynamic Binding:
+•	The appropriate method implementation to be executed is determined at runtime based on the actual type of the object, allowing for flexibility and adaptability.
+4.	Overriding:
+•	Polymorphism often involves method overriding, where a subclass provides a specific implementation for a method defined in its superclass.
+5.	Examples of Polymorphism:
+•	Method Overriding: Subclasses provide their own implementation for methods defined in the superclass, allowing for polymorphic behavior when calling these methods.
+•	Interface or Abstract Classes: Defining a common interface through an abstract class or interface, allowing multiple classes to implement it in their own way.
+6.	Benefits of Polymorphism:
+•	Simplifies code by providing a uniform way to interact with objects.
+•	Enhances flexibility, extensibility, and maintainability of code by allowing new classes to be added with minimal modifications to existing code.
+•	Facilitates the implementation of "code to an interface, not an implementation" principle, promoting good design practices.
+ 
+
+
+b.	Create a class Shape with a method area() and demonstrate polymorphism by creating subclasses Square and Circle that override the area() method.
+	import math
+class Shape:
+def __init__(self, radius):
+	pass # Placeholder, to be overridden by subclasses
+	class Square(Shape):
+		def __init__(self,side_length ):
+			self.side_length= side_length
+		def area(self):
+			return self.side_length**2
+	class(Shape):
+		def __init__(self, radius):
+			self.radius= radius
+		def area(self):
+			return math.pi * self.radius **2
+	#create instances of square and circle
+	Square= Square(5)
+	Circle =Circle(3) 
+	# Calculate and display areas
+print("Area of square:", square.area())  # Output: Area of square: 25
+print("Area of circle:", circle.area())  # Output: Area of circle: 28.274333882308138
+	 
+
+
+Encapsulation:
+a.	Explain encapsulation and how it helps in implementing data hiding in Python.
+=> encapsulation refers to the bundling of data(attributes) and the methods(functions) that operate on the data within a single unit, often known as class. Encapsulation allows for the protection and control of access to the data by restricting direct access from outside the class. 
+
+
+
+
+b. Create a class BankAccount with private attributes balance and account_number. Implement methods to deposit and withdraw funds while ensuring proper encapsulation.
+=> 
+class BankAccount:
+	def __init__(self, balance, account_number):
+		self.__balance=balance # private attribute # private attributes
+		self.__account_number= account_number
+	def withdraw(self,amount):
+		
+		balance-= withdraw_amount_input
+def deposite(self, amount):
+	
+		balance+= deposite_amount_input
+	def get_balance(self):
+		return self.__balance
+
+	account1=BankAccount(101000,1801)
+	account2= BankAccount(3000000, 1390)
+	account1.withdraw(120)
+	account2.deposite(389)
+
+Abstraction:
+a.	Describe abstraction and its role in object-oriented programming.
+=> Abstraction focuses on showing only the essential features of an object and hiding the unnecessary details. It is a way to represent complex real-world entities as simplified models in the software system.
+In the context of OOP, abstraction involves creating a blueprint or a representation of an object that emphasizes what an object does and what it is capable of, rather than how it achieves its functionalities or the internal implementation details. It allows the programmer to focus on what an object does from the outside, without needing to know the intricate working inside the object.
+Key aspects and roles of abstraction in oops:
+1)	Hiding implementation details:
+	Abstraction allows the developer to hide the complex implementation details of an object and only expose the relevant characteristics and behaviours. This makes the code more manageable, easier to understand, and shields users from unnecessary complexity.
+2 Creating a simplified model:
+	Abstraction involves creating a simplified and conceptual representation of an object, focusing on the important aspects that are relevant to the context in which the object is being used. 
+3 Defining a Contract: Abstraction defines a contract or an interface that specifies what operations an object can perform without revealing how those operations are implemented. This contract sets the expectations for interacting with the object, providing a level of predictability and stability.
+4) Encapsulation of complexity:
+	Abstraction often goes hand in hand with encapsulation, which is another principle of oops. Encapsulation ensures that the internal state and behaviour of an object are kept within the object itself, providing controlled access through well-defined interfaces. Abstraction allows for effective encapsulation by exposing only necessary information.
+5)	Facilitating Reusability and Extensibility: By presenting a clean and abstract interface to users, abstraction promotes code reuse and extensibility. Users can interact with the abstracted objects without needing to understand their internal details, making it easier to reuse those objects in various contexts or extend their functionality.
+6)	Simplifying Programming and Maintenance: Abstraction simplifies programming by allowing developers to focus on using existing abstractions (e.g., classes, APIs) without getting bogged down by their intricate details. This simplification makes development more efficient and aids in easier maintenance and updates.
+
+
+b. Create an abstract class Vehicle with an abstract method drive(). Implement this class in a subclass Car.
+=> 	
+	From abc import ABC, abstractmethod
+class abstract Vehicle:
+@abstractmethod
+def drive(self):
+	pass
+class Car(Vehicle):
+	def drive(self):
+	print(“driving the car.”)
+car= Car()
+car.drive
+	
+
+
+
+Day 1: Basics of Classes and Objects
+
+What is a class in Python, and how is it used to organize code?
+	 A class in python is blueprint for objects that defines the behaviour of the object. 
+
+What are objects in Python, and how are they created from a class?
+	In python object is an instance of a class. It means object are created on the structures and behaviours of the class. 
+Explain the concept of attributes in a class. Provide examples of attributes.
+	Attribute are the properties of the object created from class. These attributes define the object’s state and store information associated with the object.
+Describe the purpose and usage of the self parameter in class methods.
+	‘self parameter’ is used in class as a first arguments, which represents the instance being created.
+	It allows class methods to access and modify attributes and call other methods within the same class for a particular instance(object).
+
+Day 2: Inheritance and Polymorphism
+
+What is inheritance in Python, and how does it support code reuse?
+	
+Explain the concept of a base class and a derived class in inheritance.
+	
+Provide an example of multiple inheritance in Python.
+	
+How does method overriding work in Python? Give an example.
+	
+Describe the principle of polymorphism and its advantages in object-oriented programming.
+	
+Day 3: Encapsulation and Abstraction
+
+What is encapsulation in OOP, and why is it important?
+Explain the use of access specifiers (public, private, protected) in Python classes.
+Provide an example of encapsulation using private attributes and public methods.
+What is abstraction, and why is it essential in object-oriented design?
+Describe an example of using an abstract base class in Python.
+Day 4: Advanced OOP Concepts
+
+What are class methods and static methods in Python? How are they different from instance methods?
+Explain the concept of composition and how it is used in Python classes.
+Describe the Singleton design pattern and provide an example of its implementation.
+What is a decorator in Python, and how can it be used with class methods?
+Provide an example of method chaining in a Python class.
+These questions cover a range of essential topics related to object-oriented programming in Python. Take the time to research, practice, and thoroughly understand each concept. Good luck with your studies
+Day 1: Basics of Classes and Objects
+
+Create a class Person with attributes name and age. Write a method to display the person's information.
+	class Person:
+def __init__(self, name, age):
+	self.name=name
+	self.age=age
+def display(self):
+	print(age)
+	print(name)
+person1=Person(“ronak”,20)
+person1.display()
+
+Day 2: Inheritance and Polymorphism
+
+Create a base class Shape with methods area() and perimeter(). Implement subclasses Rectangle and Circle that inherit from Shape and override the methods accordingly.
+	
+
+Extend the bank account example from Day 1. Create a subclass SavingsAccount that calculates interest based on the balance and adds it to the account.
+	
+
+Day 3: Encapsulation and Abstraction
+
+Create a class Temperature that stores temperature in Fahrenheit. Ensure the temperature is private and provide methods to get and set the temperature in Celsius.
+
+Implement an abstract class Animal with a method sound(). Create subclasses Dog, Cat, and Cow that override the sound() method to produce appropriate animal sounds.
+
+Day 4: Advanced OOP Concepts
+
+Implement a class Logger using the Singleton design pattern to create a single instance of a logger throughout the program.
+
+Create a class HTMLFormatter with a method format(text) that wraps the given text in HTML <p> tags. Use a decorator to add a header and footer to the HTML output.
